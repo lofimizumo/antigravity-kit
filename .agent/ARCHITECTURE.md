@@ -8,8 +8,8 @@
 
 Antigravity Kit is a modular system consisting of:
 
-- **20 Specialist Agents** - Role-based AI personas
-- **36 Skills** - Domain-specific knowledge modules
+- **22 Specialist Agents** - Role-based AI personas
+- **38 Skills** - Domain-specific knowledge modules
 - **11 Workflows** - Slash command procedures
 
 ---
@@ -28,7 +28,7 @@ Antigravity Kit is a modular system consisting of:
 
 ---
 
-## 🤖 Agents (20)
+## 🤖 Agents (22)
 
 Specialist AI personas for different domains.
 
@@ -54,10 +54,12 @@ Specialist AI personas for different domains.
 | `qa-automation-engineer` | E2E testing, CI pipelines  | webapp-testing, testing-patterns                         |
 | `code-archaeologist`     | Legacy code, refactoring   | clean-code, code-review-checklist                        |
 | `explorer-agent`         | Codebase analysis          | -                                                        |
+| `quantum-researcher`     | Quantum algorithm design   | paper-writing, plan-writing, brainstorming, architecture |
+| `quantum-reviewer`       | Quantum paper peer review  | paper-refinement, paper-writing, plan-writing            |
 
 ---
 
-## 🧩 Skills (36)
+## 🧩 Skills (38)
 
 Modular knowledge domains that agents can load on-demand. based on task context.
 
@@ -152,6 +154,13 @@ Modular knowledge domains that agents can load on-demand. based on task context.
 | -------------------- | ------------------------- |
 | `bash-linux`         | Linux commands, scripting |
 | `powershell-windows` | Windows PowerShell        |
+
+### Research & Academic
+
+| Skill                | Description                                                     |
+| -------------------- | --------------------------------------------------------------- |
+| `paper-writing`      | ACM LaTeX paper authoring, ~12 pages, rigorous proofs           |
+| `paper-refinement`   | Review-driven manuscript revision (FATAL → MAJOR → MINOR order) |
 
 ### Other
 
@@ -266,11 +275,11 @@ For details, see [scripts/README.md](scripts/README.md)
 
 | Metric              | Value                         |
 | ------------------- | ----------------------------- |
-| **Total Agents**    | 20                            |
-| **Total Skills**    | 36                            |
+| **Total Agents**    | 22                            |
+| **Total Skills**    | 38                            |
 | **Total Workflows** | 11                            |
 | **Total Scripts**   | 2 (master) + 18 (skill-level) |
-| **Coverage**        | ~90% web/mobile development   |
+| **Coverage**        | ~90% web/mobile + quantum research |
 
 ---
 
@@ -286,3 +295,5 @@ For details, see [scripts/README.md](scripts/README.md)
 | Testing  | `test-engineer`       | testing-patterns, webapp-testing      |
 | Debug    | `debugger`            | systematic-debugging                  |
 | Plan     | `project-planner`     | brainstorming, plan-writing           |
+| Research | `quantum-researcher`  | paper-writing, brainstorming          |
+| Review   | `quantum-reviewer`    | paper-refinement, paper-writing       |
