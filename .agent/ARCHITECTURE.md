@@ -8,7 +8,7 @@
 
 Antigravity Kit is a modular system consisting of:
 
-- **22 Specialist Agents** - Role-based AI personas
+- **23 Specialist Agents** - Role-based AI personas
 - **38 Skills** - Domain-specific knowledge modules
 - **11 Workflows** - Slash command procedures
 
@@ -28,7 +28,7 @@ Antigravity Kit is a modular system consisting of:
 
 ---
 
-## 🤖 Agents (22)
+## 🤖 Agents (23)
 
 Specialist AI personas for different domains.
 
@@ -56,6 +56,7 @@ Specialist AI personas for different domains.
 | `explorer-agent`         | Codebase analysis          | -                                                        |
 | `quantum-researcher`     | Quantum algorithm design   | paper-writing, plan-writing, brainstorming, architecture |
 | `quantum-reviewer`       | Quantum paper peer review  | paper-refinement, paper-writing, plan-writing            |
+| `iclr-reviewer`          | AI/ML paper peer review    | paper-refinement, plan-writing, paper-writing            |
 
 ---
 
@@ -275,7 +276,7 @@ For details, see [scripts/README.md](scripts/README.md)
 
 | Metric              | Value                         |
 | ------------------- | ----------------------------- |
-| **Total Agents**    | 22                            |
+| **Total Agents**    | 23                            |
 | **Total Skills**    | 38                            |
 | **Total Workflows** | 11                            |
 | **Total Scripts**   | 2 (master) + 18 (skill-level) |
@@ -297,3 +298,4 @@ For details, see [scripts/README.md](scripts/README.md)
 | Plan     | `project-planner`     | brainstorming, plan-writing           |
 | Research | `quantum-researcher`  | paper-writing, brainstorming          |
 | Review   | `quantum-reviewer`    | paper-refinement, paper-writing       |
+| Review   | `iclr-reviewer`       | paper-refinement, plan-writing        |
