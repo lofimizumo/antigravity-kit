@@ -10,15 +10,18 @@
 
 ## Quick Install
 
+To install this custom fork (which includes \`quantum-researcher\`, \`quantum-reviewer\`, and \`iclr-reviewer\`), you can use `degit` to quickly pull the `.agent` folder into your project:
+
 ```bash
-npx @vudovn/ag-kit init
+npx degit lofimizumo/antigravity-kit/.agent .agent
 ```
 
-Or install globally:
+Alternatively, you can clone the repository and copy the folder manually:
 
 ```bash
-npm install -g @vudovn/ag-kit
-ag-kit init
+git clone --depth 1 https://github.com/lofimizumo/antigravity-kit.git /tmp/ag-kit
+cp -r /tmp/ag-kit/.agent ./
+rm -rf /tmp/ag-kit
 ```
 
 This installs the `.agent` folder containing all templates into your project.
@@ -103,24 +106,15 @@ Example:
 
 Skills are loaded automatically based on task context. The AI reads skill descriptions and applies relevant knowledge.
 
-## CLI Tool
+## Updating
 
-| Command         | Description                               |
-| --------------- | ----------------------------------------- |
-| `ag-kit init`   | Install `.agent` folder into your project |
-| `ag-kit update` | Update to the latest version              |
-| `ag-kit status` | Check installation status                 |
+Since this fork is not published on NPM, the standard `ag-kit update` command will revert your `.agent` folder to the upstream version and you will lose the `quantum-researcher`, `quantum-reviewer`, and `iclr-reviewer` agents.
 
-### Options
+To update this fork instead, simply run `degit` again with the `--force` flag:
 
 ```bash
-ag-kit init --force        # Overwrite existing .agent folder
-ag-kit init --path ./myapp # Install in specific directory
-ag-kit init --branch dev   # Use specific branch
-ag-kit init --quiet        # Suppress output (for CI/CD)
-ag-kit init --dry-run      # Preview actions without executing
+npx degit lofimizumo/antigravity-kit/.agent .agent --force
 ```
-
 ## Documentation
 
 - **[Web App Example](https://antigravity-kit-v2.vercel.app/docs/guide/examples/brainstorm)** - Step-by-step guide to creating a web application
