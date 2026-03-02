@@ -10,18 +10,17 @@
 
 ## Quick Install
 
-To install this custom fork (which includes \`quantum-researcher\`, \`quantum-reviewer\`, and \`iclr-reviewer\`), you can use `degit` to quickly pull the `.agent` folder into your project:
+To install the CLI tool from this custom fork (which adds \`quantum-researcher\`, \`quantum-reviewer\`, and \`iclr-reviewer\`), run:
 
 ```bash
-npx degit lofimizumo/antigravity-kit/.agent .agent
+npx lofimizumo/antigravity-kit init
 ```
 
-Alternatively, you can clone the repository and copy the folder manually:
+Or install the CLI globally from GitHub:
 
 ```bash
-git clone --depth 1 https://github.com/lofimizumo/antigravity-kit.git /tmp/ag-kit
-cp -r /tmp/ag-kit/.agent ./
-rm -rf /tmp/ag-kit
+npm install -g lofimizumo/antigravity-kit
+ag-kit init
 ```
 
 This installs the `.agent` folder containing all templates into your project.
@@ -106,14 +105,22 @@ Example:
 
 Skills are loaded automatically based on task context. The AI reads skill descriptions and applies relevant knowledge.
 
-## Updating
+## CLI Tool
 
-Since this fork is not published on NPM, the standard `ag-kit update` command will revert your `.agent` folder to the upstream version and you will lose the `quantum-researcher`, `quantum-reviewer`, and `iclr-reviewer` agents.
+| Command         | Description                               |
+| --------------- | ----------------------------------------- |
+| `ag-kit init`   | Install `.agent` folder into your project |
+| `ag-kit update` | Update to the latest version explicitly   |
+| `ag-kit status` | Check installation status                 |
 
-To update this fork instead, simply run `degit` again with the `--force` flag:
+### Options
 
 ```bash
-npx degit lofimizumo/antigravity-kit/.agent .agent --force
+ag-kit init --force        # Overwrite existing .agent folder
+ag-kit init --path ./myapp # Install in specific directory
+ag-kit init --branch dev   # Use specific branch
+ag-kit init --quiet        # Suppress output (for CI/CD)
+ag-kit init --dry-run      # Preview actions without executing
 ```
 ## Documentation
 

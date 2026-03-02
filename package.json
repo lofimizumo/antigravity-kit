@@ -4,11 +4,11 @@
   "description": "AI Agent templates - Skills, Agents, and Workflows for enhanced coding assistance",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vudovn/antigravity-kit.git"
+    "url": "git+https://github.com/lofimizumo/antigravity-kit.git"
   },
-  "homepage": "https://github.com/vudovn/antigravity-kit#readme",
+  "homepage": "https://github.com/lofimizumo/antigravity-kit#readme",
   "bugs": {
-    "url": "https://github.com/vudovn/antigravity-kit/issues"
+    "url": "https://github.com/lofimizumo/antigravity-kit/issues"
   },
   "keywords": [
     "antigravity",
@@ -18,6 +18,17 @@
     "skills",
     "templates"
   ],
-  "author": "vudovn",
-  "license": "MIT"
+  "author": "vudovn (forked by lofimizumo)",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "ag-kit": "bin/index.js"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "commander": "^12.1.0",
+    "fs-extra": "^11.3.3",
+    "giget": "^2.0.0",
+    "ora": "^8.2.0"
+  }
 }
