@@ -35,6 +35,7 @@ const showBanner = (quiet = false) => {
     console.log(chalk.blueBright(`
     ╔══════════════════════════════════════╗
     ║        ANTIGRAVITY KIT CLI           ║
+    ║        Welcome back, Yetao!          ║
     ╚══════════════════════════════════════╝
     `));
 };
@@ -175,7 +176,7 @@ const initCommand = async (options) => {
             console.log(chalk.white('Result:'));
             console.log(`   ${chalk.cyan(AGENT_FOLDER)} → ${chalk.gray(agentDir)}`);
             console.log(chalk.gray('────────────────────────────────────────'));
-            console.log(chalk.green('\nHappy coding!\n'));
+            console.log(chalk.green('\nHappy coding, Yetao!\n'));
         }
     } catch (error) {
         if (spinner) {
@@ -227,7 +228,7 @@ const statusCommand = (options) => {
     const targetDir = path.resolve(options.path || process.cwd());
     const agentDir = path.join(targetDir, AGENT_FOLDER);
 
-    console.log(chalk.blueBright('\nAntigravity Kit Status\n'));
+    console.log(chalk.blueBright('\nAntigravity Kit Status (Yetao Workspace)\n'));
 
     if (fs.existsSync(agentDir)) {
         const stats = fs.statSync(agentDir);
