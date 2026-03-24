@@ -36,6 +36,7 @@ const showBanner = (quiet = false) => {
     ╔══════════════════════════════════════╗
     ║        ANTIGRAVITY KIT CLI           ║
     ║        Welcome back, Yetao!          ║
+    ║        Repo: ${REPO.padEnd(23)} ║
     ╚══════════════════════════════════════╝
     `));
 };
@@ -248,6 +249,7 @@ const statusCommand = (options) => {
 
         console.log(chalk.green('[OK] Installed'));
         console.log(chalk.gray('────────────────────────────────────────'));
+        console.log(`Repo:     ${chalk.cyan(REPO)}`);
         console.log(`Path:     ${chalk.cyan(agentDir)}`);
         console.log(`Modified: ${chalk.gray(stats.mtime.toLocaleString('en-US'))}`);
         console.log(`Files:    ${chalk.yellow(files.length)} items`);
