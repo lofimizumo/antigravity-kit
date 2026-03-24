@@ -147,9 +147,15 @@ const initCommand = async (options) => {
     try {
         // Download repository using giget
         const repoSource = options.branch ? `${REPO}#${options.branch}` : REPO;
+        
+        if (!quiet) {
+            console.log(chalk.gray(`\n  Source: ${chalk.cyan(repoSource)}`));
+        }
+
         await downloadTemplate(repoSource, {
             dir: tempDir,
             force: true,
+            forceClean: options.refresh || false,
         });
 
         if (spinner) spinner.text = 'Installing...';
@@ -233,12 +239,31 @@ const statusCommand = (options) => {
     if (fs.existsSync(agentDir)) {
         const stats = fs.statSync(agentDir);
         const files = fs.readdirSync(agentDir, { recursive: true });
+        
+        const skillsDir = path.join(agentDir, 'skills');
+        let skills = [];
+        if (fs.existsSync(skillsDir)) {
+            skills = fs.readdirSync(skillsDir).filter(f => fs.statSync(path.join(skillsDir, f)).isDirectory());
+        }
 
         console.log(chalk.green('[OK] Installed'));
         console.log(chalk.gray('────────────────────────────────────────'));
         console.log(`Path:     ${chalk.cyan(agentDir)}`);
         console.log(`Modified: ${chalk.gray(stats.mtime.toLocaleString('en-US'))}`);
         console.log(`Files:    ${chalk.yellow(files.length)} items`);
+        console.log(`Skills:   ${chalk.yellow(skills.length)} installed`);
+        
+        if (skills.length > 0) {
+            console.log(chalk.gray('\nInstalled Skills:'));
+            const skillChunks = [];
+            for (let i = 0; i < skills.length; i += 3) {
+                skillChunks.push(skills.slice(i, i + 3).map(s => `  - ${s.padEnd(20)}`).join(''));
+            }
+            skillChunks.slice(0, 10).forEach(chunk => console.log(chunk));
+            if (skills.length > 30) {
+                console.log(chalk.gray(`  ... and ${skills.length - 30} more`));
+            }
+        }
         console.log(chalk.gray('────────────────────────────────────────\n'));
     } else {
         console.log(chalk.red('[X] Not installed'));
@@ -265,6 +290,7 @@ program
     .option('-p, --path <dir>', 'Path to the project directory', process.cwd())
     .option('-b, --branch <name>', 'Select repository branch')
     .option('-q, --quiet', 'Suppress output (for CI/CD)', false)
+    .option('-r, --refresh', 'Force refresh cache from GitHub', false)
     .option('--dry-run', 'Show what would be done without executing', false)
     .action(initCommand);
 
@@ -276,6 +302,7 @@ program
     .option('-p, --path <dir>', 'Path to the project directory', process.cwd())
     .option('-b, --branch <name>', 'Select repository branch')
     .option('-q, --quiet', 'Suppress output (for CI/CD)', false)
+    .option('-r, --refresh', 'Force refresh cache from GitHub', false)
     .option('--dry-run', 'Show what would be done without executing', false)
     .action(updateCommand);
 
